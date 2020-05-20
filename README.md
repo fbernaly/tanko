@@ -12,7 +12,7 @@ Robot tank car chassis TS100 with shock suspension from [AliExpress](https://www
 
 Manufacturer [documentation](https://github.com/SmartArduino/SZDOITWiKi/wiki/Robot-car-Preface).
 
-Assembling [instructions](ts100/Installation_TS100.pdf).
+Assembly [instructions](ts100/Installation_TS100.pdf).
 
 <div align="center">
 <img src="ts100/ts100_front.jpg" width="50%" height="50%">
@@ -28,7 +28,7 @@ Assembling [instructions](ts100/Installation_TS100.pdf).
 
 Manufacturer [documentation](https://github.com/SmartArduino/SZDOITWiKi/wiki/Robotics-Robot-Arm).
 
-Assembling [instructions](arm/大臂中英文组装说明S8.doc).
+Assembly [instructions](arm/大臂中英文组装说明S8.pdf).
 
 <div align="center">
 <img src="arm/arm_01.jpg" width="50%" height="50%">
@@ -72,13 +72,13 @@ Sample [code](arduino/Servo_PS2).
 
 ## Raspberry Pi Dev
 
-Run [tanko.py](raspberry/tankopi) in a Raspberry Pi with [Raspbian](https://www.raspberrypi.org/downloads/raspbian/).
+Run [tanko.py](raspberry/tanko) in a Raspberry Pi with [Raspbian](https://www.raspberrypi.org/downloads/raspbian/).
 
 ```
    sudo python tanko.py
 ```
 
-[tanko.py](raspberry/tankopi) allows to control 2 dc motors and 8 servos using the next shields.
+[tanko.py](raspberry/tanko) allows to control 2 dc motors and 8 servos using the next shields.
 
 Use iOS app to control Raspberry Pi.
 
@@ -100,4 +100,4 @@ Manufacturer [page](https://github.com/sbcshop/MotorShield).
 
 ## iOS App
 
-The [iOs app](iOS) controls a raspberry pi with [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) and running [tanko.py](raspberry/tankopi/).
+The [iOs app](iOS) controls a raspberry pi with [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) and running [tanko.py](raspberry/tanko/).
