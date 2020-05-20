@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7BAEEA43246F4DAF00E2D5B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA42246F4DAF00E2D5B8 /* AppDelegate.swift */; };
+		7BAEEA45246F4DAF00E2D5B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA44246F4DAF00E2D5B8 /* SceneDelegate.swift */; };
+		7BAEEA47246F4DAF00E2D5B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA46246F4DAF00E2D5B8 /* ViewController.swift */; };
+		7BAEEA4A246F4DAF00E2D5B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAEEA48246F4DAF00E2D5B8 /* Main.storyboard */; };
+		7BAEEA4C246F4DB000E2D5B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BAEEA4B246F4DB000E2D5B8 /* Assets.xcassets */; };
+		7BAEEA4F246F4DB000E2D5B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BAEEA4D246F4DB000E2D5B8 /* LaunchScreen.storyboard */; };
+		7BAEEA5C246F4E0400E2D5B8 /* JoystickScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA56246F4E0300E2D5B8 /* JoystickScene.swift */; };
+		7BAEEA5D246F4E0400E2D5B8 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA57246F4E0300E2D5B8 /* Observable.swift */; };
+		7BAEEA5E246F4E0400E2D5B8 /* TankoPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA58246F4E0300E2D5B8 /* TankoPeripheral.swift */; };
+		7BAEEA5F246F4E0400E2D5B8 /* BLEScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA59246F4E0300E2D5B8 /* BLEScanner.swift */; };
+		7BAEEA60246F4E0400E2D5B8 /* TLAnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA5A246F4E0300E2D5B8 /* TLAnalogJoystick.swift */; };
+		7BAEEA61246F4E0400E2D5B8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAEEA5B246F4E0400E2D5B8 /* Data.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7BAEEA3F246F4DAF00E2D5B8 /* Tanko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tanko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BAEEA42246F4DAF00E2D5B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7BAEEA44246F4DAF00E2D5B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7BAEEA46246F4DAF00E2D5B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7BAEEA49246F4DAF00E2D5B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7BAEEA4B246F4DB000E2D5B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BAEEA4E246F4DB000E2D5B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7BAEEA50246F4DB000E2D5B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BAEEA56246F4E0300E2D5B8 /* JoystickScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickScene.swift; sourceTree = "<group>"; };
+		7BAEEA57246F4E0300E2D5B8 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		7BAEEA58246F4E0300E2D5B8 /* TankoPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TankoPeripheral.swift; sourceTree = "<group>"; };
+		7BAEEA59246F4E0300E2D5B8 /* BLEScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEScanner.swift; sourceTree = "<group>"; };
+		7BAEEA5A246F4E0300E2D5B8 /* TLAnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TLAnalogJoystick.swift; sourceTree = "<group>"; };
+		7BAEEA5B246F4E0400E2D5B8 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BAEEA3C246F4DAF00E2D5B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B099216246F4FC2000B8CF5 /* bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				7BAEEA59246F4E0300E2D5B8 /* BLEScanner.swift */,
+				7BAEEA58246F4E0300E2D5B8 /* TankoPeripheral.swift */,
+			);
+			path = bluetooth;
+			sourceTree = "<group>";
+		};
+		7B099217246F4FD6000B8CF5 /* joystick */ = {
+			isa = PBXGroup;
+			children = (
+				7BAEEA56246F4E0300E2D5B8 /* JoystickScene.swift */,
+				7BAEEA5A246F4E0300E2D5B8 /* TLAnalogJoystick.swift */,
+			);
+			path = joystick;
+			sourceTree = "<group>";
+		};
+		7B099218246F4FEF000B8CF5 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				7BAEEA5B246F4E0400E2D5B8 /* Data.swift */,
+				7BAEEA57246F4E0300E2D5B8 /* Observable.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		7BAEEA36246F4DAF00E2D5B8 = {
+			isa = PBXGroup;
+			children = (
+				7BAEEA41246F4DAF00E2D5B8 /* TankoControl */,
+				7BAEEA40246F4DAF00E2D5B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7BAEEA40246F4DAF00E2D5B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BAEEA3F246F4DAF00E2D5B8 /* Tanko.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BAEEA41246F4DAF00E2D5B8 /* TankoControl */ = {
+			isa = PBXGroup;
+			children = (
+				7B099216246F4FC2000B8CF5 /* bluetooth */,
+				7B099217246F4FD6000B8CF5 /* joystick */,
+				7B099218246F4FEF000B8CF5 /* utils */,
+				7BAEEA42246F4DAF00E2D5B8 /* AppDelegate.swift */,
+				7BAEEA44246F4DAF00E2D5B8 /* SceneDelegate.swift */,
+				7BAEEA46246F4DAF00E2D5B8 /* ViewController.swift */,
+				7BAEEA4B246F4DB000E2D5B8 /* Assets.xcassets */,
+				7BAEEA48246F4DAF00E2D5B8 /* Main.storyboard */,
+				7BAEEA4D246F4DB000E2D5B8 /* LaunchScreen.storyboard */,
+				7BAEEA50246F4DB000E2D5B8 /* Info.plist */,
+			);
+			path = TankoControl;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7BAEEA3E246F4DAF00E2D5B8 /* TankoControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BAEEA53246F4DB000E2D5B8 /* Build configuration list for PBXNativeTarget "TankoControl" */;
+			buildPhases = (
+				7BAEEA3B246F4DAF00E2D5B8 /* Sources */,
+				7BAEEA3C246F4DAF00E2D5B8 /* Frameworks */,
+				7BAEEA3D246F4DAF00E2D5B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TankoControl;
+			productName = TankoControl;
+			productReference = 7BAEEA3F246F4DAF00E2D5B8 /* Tanko.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7BAEEA37246F4DAF00E2D5B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = fby;
+				TargetAttributes = {
+					7BAEEA3E246F4DAF00E2D5B8 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 7BAEEA3A246F4DAF00E2D5B8 /* Build configuration list for PBXProject "TankoControl" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7BAEEA36246F4DAF00E2D5B8;
+			productRefGroup = 7BAEEA40246F4DAF00E2D5B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7BAEEA3E246F4DAF00E2D5B8 /* TankoControl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7BAEEA3D246F4DAF00E2D5B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BAEEA4F246F4DB000E2D5B8 /* LaunchScreen.storyboard in Resources */,
+				7BAEEA4C246F4DB000E2D5B8 /* Assets.xcassets in Resources */,
+				7BAEEA4A246F4DAF00E2D5B8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7BAEEA3B246F4DAF00E2D5B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BAEEA5C246F4E0400E2D5B8 /* JoystickScene.swift in Sources */,
+				7BAEEA5E246F4E0400E2D5B8 /* TankoPeripheral.swift in Sources */,
+				7BAEEA5D246F4E0400E2D5B8 /* Observable.swift in Sources */,
+				7BAEEA60246F4E0400E2D5B8 /* TLAnalogJoystick.swift in Sources */,
+				7BAEEA47246F4DAF00E2D5B8 /* ViewController.swift in Sources */,
+				7BAEEA43246F4DAF00E2D5B8 /* AppDelegate.swift in Sources */,
+				7BAEEA45246F4DAF00E2D5B8 /* SceneDelegate.swift in Sources */,
+				7BAEEA61246F4E0400E2D5B8 /* Data.swift in Sources */,
+				7BAEEA5F246F4E0400E2D5B8 /* BLEScanner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7BAEEA48246F4DAF00E2D5B8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BAEEA49246F4DAF00E2D5B8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7BAEEA4D246F4DB000E2D5B8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BAEEA4E246F4DB000E2D5B8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7BAEEA51246F4DB000E2D5B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7BAEEA52246F4DB000E2D5B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BAEEA54246F4DB000E2D5B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK2LT5D78V;
+				INFOPLIST_FILE = TankoControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fby.TankoControl;
+				PRODUCT_NAME = Tanko;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7BAEEA55246F4DB000E2D5B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK2LT5D78V;
+				INFOPLIST_FILE = TankoControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fby.TankoControl;
+				PRODUCT_NAME = Tanko;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7BAEEA3A246F4DAF00E2D5B8 /* Build configuration list for PBXProject "TankoControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BAEEA51246F4DB000E2D5B8 /* Debug */,
+				7BAEEA52246F4DB000E2D5B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BAEEA53246F4DB000E2D5B8 /* Build configuration list for PBXNativeTarget "TankoControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BAEEA54246F4DB000E2D5B8 /* Debug */,
+				7BAEEA55246F4DB000E2D5B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7BAEEA37246F4DAF00E2D5B8 /* Project object */;
+}
