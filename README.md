@@ -48,7 +48,9 @@ Arduino [sample code](arduino) to control 2 dc motors in car chassis using ardui
 
 2 Motor and 16 Servo shield for Arduino from [SmartArduino](http://www.smartarduino.com/view.php?id=94895).
 
-Manufacturer [documentation](shields/2_Motor_and_16_Servo_Shield.pdf).
+[Manual](shields/2_Motor_and_16_Servo_Shield.pdf).
+
+Manufacturer [documentation](https://github.com/SmartArduino/SZDOITWiKi/wiki/Arduino---2-way%26amp%3B16-way-motor%26amp%3Bservo-shield)
 
 ### PS2 Wireless Controller With Arduino
 
