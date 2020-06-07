@@ -73,15 +73,18 @@ void loop()
   fcs ^= rh;
   fcs ^= rl;
 
-  XBee.write(0x7E);
-  XBee.write(xh);
-  XBee.write(xl);
-  XBee.write(yh);
-  XBee.write(yl);
-  XBee.write(sw);
-  XBee.write(rh);
-  XBee.write(rl);
-  XBee.write(fcs);
+  char data[9];
+  data[0] = 0x7E;
+  data[1] = xh;
+  data[2] = xl;
+  data[3] = yh;
+  data[4] = yl;
+  data[5] = sw;
+  data[6] = rh;
+  data[7] = rl;
+  data[8] = fcs;
+  
+  XBee.write(data, 9);
 
   Serial.print("x: ");
   Serial.print(x);
