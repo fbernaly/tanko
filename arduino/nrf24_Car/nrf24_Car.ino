@@ -20,11 +20,18 @@
  * SOFTWARE.
 */
 
-#include "SoftwareSerial.h"
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
 
-// RX: Arduino pin 10, XBee pin DOUT.
-// TX:  Arduino pin 11, XBee pin DIN
-SoftwareSerial XBee(10, 11);
+// nrf24
+// pin  5 - CE
+// pin 10 - CSN
+// pin 11 - MOSI
+// pin 12 - MISO
+// pin 13 - SCK
+RF24 radio(5, 10); // CE, CSN
+const byte address[6] = "00001";
 
 /******************************************************************
  * set pins connected to motors:
@@ -36,7 +43,6 @@ SoftwareSerial XBee(10, 11);
 
 // SPEED
 const double maxSpeed = 255;
-const double minSpeed = 60;
 
 void setup(){
   // motors setup
@@ -45,8 +51,11 @@ void setup(){
   pinMode(PWMB,OUTPUT);
   pinMode(DIRB,OUTPUT);
 
-  XBee.begin(57600);
-  Serial.begin(57600);
+  Serial.begin(9600);
+  radio.begin();
+  radio.openReadingPipe(0, address);   //Setting the address at which we will receive the data
+  radio.setPALevel(RF24_PA_MAX);       //You can set this as minimum or maximum depending on the distance between the transmitter and receiver.
+  radio.startListening();              //This sets the module as receiver
 
   Serial.println();  
   Serial.println("================");
@@ -55,52 +64,20 @@ void setup(){
 }
 
 void loop() {
-  if (XBee.available() == 0)
-    return;
+  if (!radio.available()) return;
 
-  int count = 0;
-  int header;
-  int xh;
-  int xl;
-  int yh;
-  int yl;
-  int sw;
-  int rh;
-  int rl;
-  int _fcs;
-  while (XBee.available()) {
-    int n = XBee.read();
+  char data[5] = "";                 //Saving the incoming data
+  radio.read(&data, sizeof(data));    //Reading the data
 
-    if (count == 0)
-      header = n;
-    else if (count == 1)
-      xh = n;
-    else if (count == 2)
-      xl = n;
-    else if (count == 3)
-      yh = n;
-    else if (count == 4)
-      yl = n;
-    else if (count == 5)
-      sw = n;
-    else if (count == 6)
-      rh = n;
-    else if (count == 7)
-      rl = n;
-    else if (count == 8)
-      _fcs = n;
+  int _x = data[1] & 0xFF;
+  int _y = data[2] & 0xFF;
+  int sw = data[3] & 0xFF;
+  int _fcs = data[4] & 0xFF;
 
-    count++;
-  }
-  
   int fcs = 0x00;
-  fcs ^= xh;
-  fcs ^= xl;
-  fcs ^= yh;
-  fcs ^= yl;
+  fcs ^= _x;
+  fcs ^= _y;
   fcs ^= sw;
-  fcs ^= rh;
-  fcs ^= rl;
 
   if (fcs != _fcs) {
     Serial.print("Wrong checksum :( ");
@@ -110,17 +87,17 @@ void loop() {
     Serial.println();
     return;
   }
-  
-  double x = ((xh << 8) & 0xFF00) | (xl & 0xFF);
-  
-  double y = ((yh << 8) & 0xFF00) | (yl & 0xFF);
-  
-  double ref = (((rh << 8) & 0xFF00) | (rl & 0xFF));
-  ref = ref / 2;
+
+  double x = double(_x);
+  double y = double(_y);
+  double ref = 255 / 2;
 
   // normalize x and y: -1 to 1
   x = (x - ref) / ref;
   y = (y - ref) / ref;
+
+  if (abs(x) < 0.1) x = 0;
+  if (abs(y) < 0.1) y = 0;
 
   // compute motor speed
   double ma = maxSpeed * (x + y);
@@ -130,12 +107,6 @@ void loop() {
   ma = constrain(ma, -maxSpeed, maxSpeed);  
   mb = constrain(mb, -maxSpeed, maxSpeed);
 
-  // min speed threshold for motor A
-  if (abs(ma) < minSpeed) ma = 0;
-
-  // min speed threshold for motor B
-  if (abs(mb) < minSpeed) mb = 0;
-
   // control motor A
   digitalWrite(DIRA, (ma >= 0) ? HIGH : LOW);
   analogWrite(PWMA, abs(ma));
@@ -144,9 +115,17 @@ void loop() {
   digitalWrite(DIRB, (mb >= 0) ? HIGH : LOW);
   analogWrite(PWMB, abs(mb));
 
-  Serial.print("a: ");
+  Serial.print(" x: ");
+  Serial.print(x);
+  Serial.print(" y: ");
+  Serial.print(y);
+  Serial.print(" sw: ");
+  Serial.print(sw);
+  Serial.print(" ma: ");
   Serial.print(ma);
-  Serial.print(" b: ");
+  Serial.print(" mb: ");
   Serial.print(mb);
   Serial.println();
+
+  delay(10);
 }

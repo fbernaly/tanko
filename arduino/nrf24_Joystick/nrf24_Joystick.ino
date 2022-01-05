@@ -20,13 +20,19 @@
  * SOFTWARE.
 */
 
-#include "SoftwareSerial.h"
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
 
-// RX: Arduino pin 2, XBee pin DOUT.
-// TX:  Arduino pin 3, XBee pin DIN
-int DOUT_PIN = 2;
-int DIN_PIN = 3;
-SoftwareSerial XBee(DOUT_PIN, DIN_PIN);
+// nrf24
+// pin  9 - CE
+// pin 10 - CSN
+// pin 11 - MOSI
+// pin 12 - MISO
+// pin 13 - SCK
+RF24 radio(9, 10); 
+const byte address[6] = "00001";     
+int button_pin = 2;
 
 // Joystick pins
 int X_PIN = A2;
@@ -36,55 +42,45 @@ int SW_PIN = 5;
 
 void setup()
 {
-  XBee.begin(57600);
-  Serial.begin(57600);
+  Serial.begin(9600);
+  radio.begin();                 
+  radio.openWritingPipe(address);
+  radio.setPALevel(RF24_PA_MIN); 
+  radio.stopListening();  
 
   pinMode(SW_PIN, INPUT);
 }
 
 void loop()
 {
-  int x = analogRead(X_PIN);
-  int y = analogRead(Y_PIN);
+  unsigned int x = analogRead(X_PIN);
+  unsigned int y = analogRead(Y_PIN);
   char sw = digitalRead(SW_PIN);
-  int ref = analogRead(REF_PIN);
+  unsigned int ref = analogRead(REF_PIN);
 
   y = ref - y;
+  x = map(x, 0, ref, 0, 255);
+  y = map(y, 0, ref, 0, 255);
 
   if (sw == 1)
     sw = 0x00;
   else if (sw == 0)
     sw = 0x01;
 
-  char xh = (x >> 8) & 0xF;
-  char xl = x & 0xFF;
-  char yh = (y >> 8) & 0xF;
-  char yl = y & 0xFF;
-  char rh = (ref >> 8) & 0xF;
-  char rl = ref & 0xFF;
-
   // checksum
   char fcs = 0x00;
-  fcs ^= xh;
-  fcs ^= xl;
-  fcs ^= yh;
-  fcs ^= yl;
+  fcs ^= (x & 0xFF);
+  fcs ^= (y & 0xFF);
   fcs ^= sw;
-  fcs ^= rh;
-  fcs ^= rl;
-
-  char data[9];
-  data[0] = 0x7E;
-  data[1] = xh;
-  data[2] = xl;
-  data[3] = yh;
-  data[4] = yl;
-  data[5] = sw;
-  data[6] = rh;
-  data[7] = rl;
-  data[8] = fcs;
   
-  XBee.write(data, 9);
+  char data[5];
+  data[0] = 0x7E;
+  data[1] = (x & 0xFF);
+  data[2] = (y & 0xFF);
+  data[3] = sw;
+  data[4] = fcs;
+
+  radio.write(&data, sizeof(data));
 
   Serial.print("x: ");
   Serial.print(x);
@@ -92,8 +88,7 @@ void loop()
   Serial.print(y);
   Serial.print(" sw: ");
   Serial.print(int(sw));
-  Serial.print(" ref: ");
-  Serial.println(ref);
+  Serial.println();
   
   delay(100);
 }
