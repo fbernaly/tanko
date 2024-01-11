@@ -20,6 +20,9 @@
  * SOFTWARE.
 */
 
+// How to use the NRF24L01 module with Arduino: https://projecthub.arduino.cc/tmekinyan/how-to-use-the-nrf24l01-module-with-arduino-813957
+// Doc: https://nrf24.github.io/RF24/
+
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
@@ -53,12 +56,12 @@ void setup()
 
 void loop()
 {
-  unsigned int x = analogRead(X_PIN);
-  unsigned int y = analogRead(Y_PIN);
+  int x = analogRead(X_PIN);
+  int y = analogRead(Y_PIN);
   char sw = digitalRead(SW_PIN);
-  unsigned int ref = analogRead(REF_PIN);
+  int ref = analogRead(REF_PIN);
 
-  y = ref - y;
+  y = max(0, ref - y);
   x = map(x, 0, ref, 0, 255);
   y = map(y, 0, ref, 0, 255);
 
@@ -90,5 +93,5 @@ void loop()
   Serial.print(int(sw));
   Serial.println();
   
-  delay(100);
+  // delay(100);
 }
