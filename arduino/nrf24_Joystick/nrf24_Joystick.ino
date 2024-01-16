@@ -58,12 +58,12 @@ void loop()
 {
   int x = analogRead(X_PIN);
   int y = analogRead(Y_PIN);
-  char sw = digitalRead(SW_PIN);
+  int sw = digitalRead(SW_PIN);
   int ref = analogRead(REF_PIN);
 
   y = max(0, ref - y);
-  x = map(x, 0, ref, 0, 255);
-  y = map(y, 0, ref, 0, 255);
+  x = min(255, map(x, 0, ref, 0, 255));
+  y = min(255, map(y, 0, ref, 0, 255));
 
   if (sw == 1)
     sw = 0x00;
@@ -71,27 +71,27 @@ void loop()
     sw = 0x01;
 
   // checksum
-  char fcs = 0x00;
+  int fcs = 0x00;
   fcs ^= (x & 0xFF);
   fcs ^= (y & 0xFF);
-  fcs ^= sw;
+  fcs ^= (sw & 0xFF);
   
   char data[5];
   data[0] = 0x7E;
   data[1] = (x & 0xFF);
   data[2] = (y & 0xFF);
-  data[3] = sw;
-  data[4] = fcs;
+  data[3] = (sw & 0xFF);
+  data[4] = (fcs & 0xFF);
 
   radio.write(&data, sizeof(data));
 
-  Serial.print("x: ");
+  Serial.print(" x: ");
   Serial.print(x);
   Serial.print(" y: ");
   Serial.print(y);
   Serial.print(" sw: ");
-  Serial.print(int(sw));
+  Serial.print(sw);
+  Serial.print(" fcs: ");
+  Serial.print(fcs);
   Serial.println();
-  
-  // delay(100);
 }
