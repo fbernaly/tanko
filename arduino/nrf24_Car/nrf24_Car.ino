@@ -74,10 +74,19 @@ void loop() {
   int sw = data[3] & 0xFF;
   int _fcs = data[4] & 0xFF;
 
+  Serial.print(" _x: ");
+  Serial.print(_x);
+  Serial.print(" _y: ");
+  Serial.print(_y);
+  Serial.print(" sw: ");
+  Serial.print(sw);
+  Serial.print(" _fcs: ");
+  Serial.print(_fcs);
+
   int fcs = 0x00;
-  fcs ^= _x;
-  fcs ^= _y;
-  fcs ^= sw;
+  fcs ^= (_x & 0xFF);
+  fcs ^= (_y & 0xFF);
+  fcs ^= (sw & 0xFF);
 
   if (fcs != _fcs) {
     Serial.print("Wrong checksum :( ");
@@ -93,11 +102,8 @@ void loop() {
   double ref = 255 / 2;
 
   // normalize x and y: -1 to 1
-  x = (x - ref) / ref;
-  y = (y - ref) / ref;
-
-  if (abs(x) < 0.1) x = 0;
-  if (abs(y) < 0.1) y = 0;
+  x = double(int(((x - ref) / ref) * 10))/10;
+  y = double(int(((y - ref) / ref) * 10))/10;
 
   // compute motor speed
   double ma = maxSpeed * (x + y);
@@ -119,12 +125,11 @@ void loop() {
   Serial.print(x);
   Serial.print(" y: ");
   Serial.print(y);
-  Serial.print(" sw: ");
-  Serial.print(sw);
   Serial.print(" ma: ");
   Serial.print(ma);
   Serial.print(" mb: ");
   Serial.print(mb);
+
   Serial.println();
 
   delay(10);
